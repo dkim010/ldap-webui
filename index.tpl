@@ -13,7 +13,7 @@
 
   <body>
     <main>
-      <h1>{{ page_title }}</h1>
+      <h2 style="text-align: center;">{{ page_title }}</h2>
 
       <form method="post">
         <label for="username">Username</label>
