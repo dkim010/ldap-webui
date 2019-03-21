@@ -134,6 +134,13 @@ def _create_account(conf, admin_password, username, email, group):
         ad_add_members_to_groups(c, dn, group_dn)
         LOG.info(('ad_add_members_to_groups', c.result))
 
+        # enable
+        default_password = CONF['rule']['default_password']
+        c.extend.microsoft.modify_password(dn, new_password=default_password)
+        LOG.info(('modify_password', c.result))
+        c.modify(dn, {'userAccountControl': [('MODIFY_REPLACE', 66048)]})
+        LOG.info(('modify', c.result))
+
 
 def modify_account(conf, username, group):
     pass
