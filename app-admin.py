@@ -116,6 +116,7 @@ def _create_account(conf, admin_password, username, email, group):
         dn = f'CN={username},{conf["base"]}'
         attrs = {
             'cn': f'{username}',
+            'displayName': f'{username}',
             'name': f'{username}',
             'sAMAccountName': f'{username}',
             'objectClass': ['top', 'person', 'organizationalPerson', 'user'],
